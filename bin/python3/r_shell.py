@@ -5,7 +5,7 @@ import jieba
 import jieba.posseg as pseg
 
 while 1:
-	print("Now what are you intend:");
+	print("...");
 	raw = input();
 	print(raw);	
 	words = pseg.cut(raw)
@@ -13,5 +13,7 @@ while 1:
 		print('%s->%s' % (word, flag))
 	if word == "quit":
 		quit()
+	else
+	
 
-print("Over");
+print("Over...");
