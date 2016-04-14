@@ -9,11 +9,15 @@ while 1:
 	raw = input();
 	print(raw);	
 	words = pseg.cut(raw)
-	for word, flag in words:
-		print('%s->%s' % (word, flag))
+	#for word, flag in words:
+	#	print('%s->%s' % (word, flag))
+	for word in words:
+		print(word.word);
+		print(word.flag);
 	if word == "quit":
 		quit()
-	else
-	
+
+	print(words)
+	print(type(words))
 
 print("Over...");
