@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 '''
-Created on 2016年 4月20日
+Created on 2016年4月20日
 @author: Westlor
 '''
 import jieba.posseg as pseg
