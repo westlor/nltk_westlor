@@ -6,6 +6,11 @@ Created on 2016Äê4ÔÂ14ÈÕ
 '''
 import sqlite3
 
+class Sql(object):
+    
+    def __init__(self, db):
+        self.conn = 
+
 CONN = None
 
 def open(db):

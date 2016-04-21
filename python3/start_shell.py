@@ -9,17 +9,18 @@ import ask_shell
 
 switch={
     '0': read_shell.read,
-    '1': ask_shell.read
+    '1': ask_shell.read,
 };
 
-mod = input("Please select mod: 0-read_shell, 1-ask_shell, 2-speak_shell...)");
+mod = input("Please select mod: 0-read_shell, 1-ask_shell, 2-speak_shell...):~$ ");
 
 while 1:
-    print("...>>>");
-    raw = input();
+    raw = input("ws@nltk:~$ ");
     
     if raw == "quit":
         print("Over...")
         quit() 
+    elif raw == '':
+        pass
     else:
         switch.get(mod)(raw)
