@@ -33,3 +33,15 @@ def read(raw):
         print('n is master..'+raw_flags[0])
         rsns.proc(raw_words, raw_flags)
         pass
+
+if __name__ == '__main__':
+    while 1:
+        raw = input("ws@nltk:~$ ");
+        
+        if raw == "quit":
+            print("Over...")
+            quit() 
+        elif raw == '':
+            pass
+        else:
+            read(raw)
