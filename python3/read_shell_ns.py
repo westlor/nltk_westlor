@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# -*- coding: UTF-8 -*-
+#encoding=utf-8
 '''
 Created on 2016年4月21日
 
@@ -22,12 +22,10 @@ def proc_w2(words, flags):
 
 def proc_w3(words, flags):
     prop = NULL
-    while(prop == NULL):
+    while prop==NULL or prop=='':
         prop = input(words[0] + "的什么" + words[1] + words[2] + "?:~$ ")
-    sql = dbs.Sql("test.db")
-    sql.creat("ntable", ["name"], ["NCHAR(20)"])
-    print(sql.colinfo("ntable"))
-    
+    sql = dbs.Sql("rs_ns.db")
+    sql.addelem("rs_ns", "name", words[0], prop, words[2])
 
 switch={
     0: proc_w0,
@@ -37,4 +35,14 @@ switch={
 };
 def proc(words, flags):
     switch.get(len(words))(words, flags)
+    pass
+
+if __name__ == '__main__':
+    
+    table = "rs_ns"
+    sql = dbs.Sql(table + ".db")
+    
+    print(sql.probetable(table))
+    print(sql.colinfo(table))
+    print(sql.tabledata(table))  
     pass
