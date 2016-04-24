@@ -142,8 +142,10 @@ class Sql(object):
                         self.update(table, src_name, src_value, des_name, des_value)
                     else:   #不存在对应的行
                         self.insert(table, (src_name, des_name), (src_value, des_value))
-                elif des_value in data:     # 这个元素包含需要插入的元素
-                    return 
+                #elif des_value in data:     # 这个元素包含需要插入的元素
+                #    return 
+                elif re.match(r'n+', flags[1]):
+                    return
                 else:                       # 这个元素不包含需要插入的元素
                     data = data + " " + des_value
                     self.update(table, src_name, src_value, des_name, data)

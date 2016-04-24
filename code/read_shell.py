@@ -28,9 +28,8 @@ def pro_start(words, flags):
     if len(index) > 0:
         if index[0] == 0:
             index.remove(0)
-        for i in index:
-            print(i)
-            if words[i] == 'n':
+        for i in index:                 # 对词汇后加标记的词性给予替换
+            if words[i] == 'n':         # n-名词    a-形容词
                 words.remove(words[i])
                 flags.remove(flags[i])
                 flags[i-1] = 'n'
@@ -46,11 +45,11 @@ def find_key(words, flags):
     print(words)
     print(flags)
     
+    sign = None
     for arg in flags:
-        if re.match(r'n+', arg) or re.match(r'r+', arg):           # 名词开头
-            return 'nr'
-        else:
-            return None
+        if re.match(r'n+', arg) or re.match(r'r+', arg):
+            sign = 'nr'
+    return sign
 
 def read(raw):
     raw_words = []
@@ -67,11 +66,11 @@ def read(raw):
     print(raw_flags)
     
     s = find_key(raw_words, raw_flags)
-    #process.get(s)(raw_words, raw_flags)
+    process.get(s)(raw_words, raw_flags)
 
 if __name__ == '__main__':
 
-    while 0:
+    while 1:
         raw = input("ws@nltk:~$ ");
         
         if raw == "quit":
