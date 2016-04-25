@@ -113,7 +113,7 @@ class Sql(object):
         
         sql = "select " + des_name + " from " + table + " where " + src_name + "=" + src_value
         
-        print("SQL: " + sql + " # 查找对应列是否存在");
+        print("SQL: " + sql + " # 查找对应元素是否存在");
         try:
             cursor = self.conn.execute(sql);
             data = cursor.fetchall()
@@ -142,10 +142,8 @@ class Sql(object):
                         self.update(table, src_name, src_value, des_name, des_value)
                     else:   #不存在对应的行
                         self.insert(table, (src_name, des_name), (src_value, des_value))
-                #elif des_value in data:     # 这个元素包含需要插入的元素
-                #    return 
-                elif re.match(r'n+', flags[1]):
-                    return
+                elif des_value in data:     # 这个元素包含需要插入的元素
+                    return 
                 else:                       # 这个元素不包含需要插入的元素
                     data = data + " " + des_value
                     self.update(table, src_name, src_value, des_name, data)

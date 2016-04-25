@@ -4,19 +4,8 @@
 Created on 2016年 4月20日
 @author: Westlor
 '''
-import read_shell_nr as rs_nr
 import jieba.posseg as pseg
 import re
-
-def nothing(w, f):
-    pass
-
-process={
-    'nr': rs_nr.proc,
-    'rs': rs_nr.proc,
-    None: nothing,
-};
-
 
 # 句子预处理，更改分词的词性
 def pro_start(words, flags):
@@ -59,7 +48,6 @@ def read(raw):
     print(raw_flags)
     
     s = find_key(raw_words, raw_flags)
-    process.get(s)(raw_words, raw_flags)
 
 if __name__ == '__main__':
 

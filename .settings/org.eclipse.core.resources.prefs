@@ -6,3 +6,5 @@ encoding//code/database/sql.py=utf-8
 encoding//code/read_shell.py=utf-8
 encoding//code/read_shell_nr.py=utf-8
 encoding//code/start_shell.py=UTF-8
+encoding//code/test/r_shell.py=utf-8
+encoding//code/test/strtest.py=utf-8
