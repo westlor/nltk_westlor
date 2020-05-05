@@ -7,6 +7,9 @@ Created on 2016年 4月20日
 import read_shell_nr as rs_nr
 import jieba.posseg as pseg
 import re
+import constant
+import constituent
+from warnings import catch_warnings
 
 def nothing(w, f):
     pass
@@ -16,7 +19,6 @@ process={
     'rs': rs_nr.proc,
     None: nothing,
 };
-
 
 # 句子预处理，更改分词的词性
 def pro_start(words, flags):
@@ -47,6 +49,7 @@ def find_key(words, flags):
 def read(raw):
     raw_words = []
     raw_flags = []
+    raw_flags_zh = []
     
     print("raw:"+raw)
     words = pseg.cut(raw)
@@ -54,23 +57,13 @@ def read(raw):
     for w in words:
         raw_words.append(w.word)
         raw_flags.append(w.flag)
-        
-    print(raw_words)
-    print(raw_flags)
+        try:
+            raw_flags_zh.append(constant.ParticipleName[w.flag])
+        except KeyError:
+            raw_flags_zh.append("未知词")
     
-    s = find_key(raw_words, raw_flags)
-    process.get(s)(raw_words, raw_flags)
-
-if __name__ == '__main__':
-
-    while 1:
-        raw = input("ws@nltk:~$ ");
-        
-        if raw == "quit":
-            print("Over...")
-            quit() 
-        elif raw == '':
-            pass
-        else:
-            read(raw)
-            pass
+    # 语法分析
+    constituent.analysis(raw_words, raw_flags, raw_flags_zh)
+    
+    #s = find_key(raw_words, raw_flags)
+    #process.get(s)(raw_words, raw_flags)

@@ -1,10 +1,8 @@
 eclipse.preferences.version=1
-encoding//code/ask_shell.py=UTF-8
-encoding//code/database/__init__.py=UTF-8
-encoding//code/database/dbtest.py=UTF-8
 encoding//code/database/sql.py=utf-8
 encoding//code/read_shell.py=utf-8
 encoding//code/read_shell_nr.py=utf-8
-encoding//code/start_shell.py=UTF-8
 encoding//code/test/r_shell.py=utf-8
 encoding//code/test/strtest.py=utf-8
+encoding//code/testDB.py=utf-8
+encoding//source/\u6211\u7684\u56E2\u957F\u6211\u7684\u56E2-\u5170\u6653\u9F99.txt=ISO-8859-1
